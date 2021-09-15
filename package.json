@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ophelie-rochefeuille/Docker_LPDW/issues"
   },
-  "homepage": "https://github.com/ophelie-rochefeuille/Docker_LPDW#readme"
+  "homepage": "https://github.com/ophelie-rochefeuille/Docker_LPDW#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
