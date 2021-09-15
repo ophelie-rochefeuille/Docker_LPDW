@@ -1,0 +1,19 @@
+{
+  "name": "docker_lpdw",
+  "version": "1.0.0",
+  "description": "CLEMENT  Ophélie R PIERRE Tom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ophelie-rochefeuille/Docker_LPDW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ophelie-rochefeuille/Docker_LPDW/issues"
+  },
+  "homepage": "https://github.com/ophelie-rochefeuille/Docker_LPDW#readme"
+}
