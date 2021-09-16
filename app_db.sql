@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db:3306
--- Généré le : jeu. 16 sep. 2021 à 13:28
+-- Généré le : jeu. 16 sep. 2021 à 14:44
 -- Version du serveur : 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- Version de PHP : 7.4.20
 
@@ -31,6 +31,13 @@ CREATE TABLE `camions` (
   `plaque` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `camions`
+--
+
+INSERT INTO `camions` (`plaque`) VALUES
+('AB-123-CD');
+
 -- --------------------------------------------------------
 
 --
@@ -38,8 +45,9 @@ CREATE TABLE `camions` (
 --
 
 CREATE TABLE `entrepots` (
-  `nom_entrepot` varchar(200) NOT NULL,
-  `ville` varchar(200) NOT NULL
+  `ville` varchar(200) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nom_entrepot` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,7 +76,7 @@ CREATE TABLE `transactions` (
   `user` varchar(200) NOT NULL,
   `num_camion` varchar(9) NOT NULL,
   `poulet` int(11) NOT NULL,
-  `entrepot` varchar(200) NOT NULL,
+  `entrepot` int(11) NOT NULL,
   `ville` varchar(200) NOT NULL,
   `type` varchar(7) NOT NULL,
   `date` datetime NOT NULL
@@ -87,6 +95,13 @@ CREATE TABLE `utilisateurs` (
   `mdp` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`login`, `nom`, `prenom`, `mdp`) VALUES
+('usertest', 'test', 'test', 'test');
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +111,17 @@ CREATE TABLE `utilisateurs` (
 CREATE TABLE `villes` (
   `nom_ville` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `villes`
+--
+
+INSERT INTO `villes` (`nom_ville`) VALUES
+('Bordeaux'),
+('Brest'),
+('Caen'),
+('Paris'),
+('Strasbourg');
 
 --
 -- Index pour les tables déchargées
@@ -111,7 +137,7 @@ ALTER TABLE `camions`
 -- Index pour la table `entrepots`
 --
 ALTER TABLE `entrepots`
-  ADD PRIMARY KEY (`nom_entrepot`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `ville` (`ville`);
 
 --
@@ -148,6 +174,12 @@ ALTER TABLE `villes`
 --
 
 --
+-- AUTO_INCREMENT pour la table `entrepots`
+--
+ALTER TABLE `entrepots`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `transactions`
 --
 ALTER TABLE `transactions`
@@ -177,7 +209,7 @@ ALTER TABLE `transactions`
   ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`num_camion`) REFERENCES `camions` (`plaque`),
   ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`user`) REFERENCES `utilisateurs` (`login`),
   ADD CONSTRAINT `transactions_ibfk_3` FOREIGN KEY (`ville`) REFERENCES `villes` (`nom_ville`),
-  ADD CONSTRAINT `transactions_ibfk_4` FOREIGN KEY (`entrepot`) REFERENCES `entrepots` (`nom_entrepot`);
+  ADD CONSTRAINT `transactions_ibfk_4` FOREIGN KEY (`entrepot`) REFERENCES `entrepots` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
