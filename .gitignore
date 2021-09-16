@@ -228,5 +228,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+#data ignore (sql)
+data/
+
 # End of https://www.toptal.com/developers/gitignore/api/node,intellij
 
