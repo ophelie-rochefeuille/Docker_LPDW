@@ -7,7 +7,7 @@ const {Transactions} = require('../models');
 router.get('/', (req, res, next) => {
   Transactions.findAll()
     .then(transactions => {
-      console.log(transactions)
+      res.send(transactions)
       res.sendStatus(200).json(transactions);
     })
     .catch(err => console.log(err))

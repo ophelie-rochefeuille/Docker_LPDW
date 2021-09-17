@@ -7,7 +7,7 @@ const {Camions} = require('../models');
 router.get('/', (req, res, next) => {
   Camions.findAll()
     .then(camions => {
-      console.log(camions)
+      res.send(camions);
       res.sendStatus(200).json(camions);
     })
     .catch(err => console.log(err))
@@ -22,10 +22,11 @@ router.get('/destroy', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/create', (req, res) => {
-  Camions.create()
+router.get('/create/:plaque', (req, res) => {
+  const plaque = req.params.plaque
+  Camions.create({plaque: plaque})
     .then(camions => {
-      console.log(camions)
+      res.send(camions);
       res.sendStatus(200).json(camions);
     })
     .catch(err => console.log(err))

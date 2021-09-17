@@ -7,7 +7,7 @@ const {Entrepots} = require('../models');
 router.get('/', (req, res, next) => {
   Entrepots.findAll()
     .then(entrepots => {
-      console.log(entrepots)
+      res.send(entrepots);
       res.sendStatus(200).json(entrepots);
     })
     .catch(err => console.log(err))

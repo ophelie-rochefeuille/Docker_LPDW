@@ -4,10 +4,10 @@ const router = express.Router();
 const db = require('../../config/database');
 const {Villes} = require('../models');
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   Villes.findAll()
     .then(villes => {
-      console.log(villes)
+      res.send(villes);
       res.sendStatus(200).json(villes);
     })
     .catch(err => console.log(err))
@@ -16,16 +16,17 @@ router.get('/', (req, res, next) => {
 router.get('/destroy', (req, res) => {
   Villes.destroy()
     .then(villes => {
-      console.log(villes)
+      res.send(villes);
       res.sendStatus(200);
     })
     .catch(err => console.log(err))
 })
 
-router.get('/create', (req, res) => {
-  Villes.create()
+router.get('/create/:id', (req, res) => {
+  const id = req.params.id
+  Villes.create({nom_ville:id})
     .then(villes => {
-      console.log(villes)
+      res.send(villes);
       res.sendStatus(200)
     })
     .catch(err => console.log(err))

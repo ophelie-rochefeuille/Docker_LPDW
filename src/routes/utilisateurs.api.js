@@ -7,7 +7,7 @@ const {Utilisateurs} = require('../models');
 router.get('/', (req, res, next) => {
   Utilisateurs.findAll()
     .then(utilisateurs => {
-      console.log(utilisateurs)
+      res.send(utilisateurs);
       res.sendStatus(200).json(utilisateurs);
     })
     .catch(err => console.log(err))

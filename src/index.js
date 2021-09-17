@@ -17,6 +17,13 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+app.use('/api/villes', VillesAPI)
+app.use('/api/camions', CamionsAPI)
+app.use('/api/trajets', TrajetsAPI)
+app.use('/api/transactions', TransactionsAPI)
+app.use('/api/entrepots', EntrepotsAPI)
+app.use('/api/utilisateurs', UtilisateursAPI)
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
