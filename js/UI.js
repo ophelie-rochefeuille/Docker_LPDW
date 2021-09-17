@@ -15,13 +15,15 @@ function oklogin() {
 
 var plaque=document.getElementById('plaque');
 
-plaque.onkeyup=(e)=>{
+plaque.onkeydown=(e)=>{
     if(e.key!='Backspace'){
-        if(/[^a-zA-z0-9-]/g.test(plaque.value)){
-            document.getElementById('plaque-error').style.display='block';
-        }
         if(/^[a-zA-Z0-9]{2,2}$/.test(plaque.value) || /^[a-zA-Z0-9-]{6,6}$/.test(plaque.value)){
             plaque.value+='-';
         }
+    }
+    if(/[^a-zA-Z0-9-]/g.test(plaque.value)){
+        document.getElementById('plaque-error').style.display='block';
+    }else{
+        document.getElementById('plaque-error').style.display='none';
     }
 }
