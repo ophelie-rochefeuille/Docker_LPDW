@@ -1,6 +1,10 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
-const Trajets=require('./Trajets')
+
+const Villes=require('./Villes')
+const Utilisateurs=require('./Utilisateurs')
+const Camions=require('./Camions')
+const Entrepots=require('./Entrepots')
 
 const Transactions=db.define('villes',{
     id:{
@@ -19,6 +23,9 @@ const Transactions=db.define('villes',{
     }
 })
 
-Transactions.hasOne(Trajets,{as:'id_trajet'})
+Transactions.hasOne(Villes)
+Transactions.hasOne(Utilisateurs)
+Transactions.hasOne(Camions)
+Transactions.hasOne(Entrepots)
 
 module.exports=Transactions

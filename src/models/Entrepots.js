@@ -1,6 +1,6 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
-const Transactions=require('./Transactions')
+const Villes=require('./Villes')
 
 const Entrepots=db.define('Entrepots',{
     id:{
@@ -13,6 +13,6 @@ const Entrepots=db.define('Entrepots',{
     }
 })
 
-Entrepots.hasOne(Transactions,{as:'entrepot'})
+Entrepots.hasOne(Villes)
 
 module.exports=Entrepots

@@ -1,6 +1,8 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
 
+const Transactions=require('./Transactions')
+
 const Trajets=db.define('Trajets',{
     id:{
         type:Sequelize.INTEGER,
@@ -20,5 +22,7 @@ const Trajets=db.define('Trajets',{
         type:Sequelize.DATE
     }
 })
+
+Trajets.hasOne(Transactions)
 
 module.exports=Trajets
