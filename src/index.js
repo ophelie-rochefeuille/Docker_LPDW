@@ -8,8 +8,8 @@ db.sync()
 db.authenticate()
     .then(()=>console.log('Database connected...'))
     .catch(err=>console.log('Error: '+err))
-const {City,Truck,Temperature}=require('./models')
-
+const {Villes,Camions,Trajets,Transactions,Entrepots,Utilisateurs}=require('./models/index')
+db.sync()
 
 
 app.get('/', (req, res) => {

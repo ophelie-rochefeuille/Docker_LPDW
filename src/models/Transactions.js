@@ -1,0 +1,33 @@
+const Sequelize=require('sequelize')
+const db=require('../../config/database')
+
+const Villes=db.define('villes',{
+    id:{
+        type:Sequelize.STRING,
+        primaryKey:true,
+        autoIncrement:true
+    },
+    user:{
+        type:Sequelize.STRING
+    },
+    plaque:{
+        type:Sequelize.STRING(9)
+    },
+    poulet:{
+        type:Sequelize.INTEGER
+    },
+    entrepot:{
+        type:Sequelize.INTEGER
+    },
+    ville:{
+        type:Sequelize.STRING
+    },
+    type:{
+        type:Sequelize.STRING(7)
+    },
+    date:{
+        type:Sequelize.DATE
+    }
+})
+
+module.exports=Villes
