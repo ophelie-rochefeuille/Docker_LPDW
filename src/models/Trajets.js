@@ -7,9 +7,6 @@ const Trajets=db.define('Trajets',{
         primaryKey:true,
         autoIncrement:true
     },
-    id_trajet:{
-        type:Sequelize.INTEGER
-    },
     temperature:{
         type:Sequelize.INTEGER
     },

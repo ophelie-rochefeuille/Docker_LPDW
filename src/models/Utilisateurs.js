@@ -1,5 +1,6 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
+const Transactions=require('./Transactions')
 
 const Utilisateurs=db.define('Utilisateurs',{
     login:{
@@ -16,5 +17,7 @@ const Utilisateurs=db.define('Utilisateurs',{
         type:Sequelize.TEXT
     }
 })
+
+Utilisateurs.hasOne(Transactions,{as:'user'})
 
 module.exports=Utilisateurs

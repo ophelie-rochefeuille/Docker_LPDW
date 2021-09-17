@@ -1,5 +1,6 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
+const Trajets=require('./Trajets')
 
 const Transactions=db.define('villes',{
     id:{
@@ -7,20 +8,8 @@ const Transactions=db.define('villes',{
         primaryKey:true,
         autoIncrement:true
     },
-    user:{
-        type:Sequelize.STRING
-    },
-    plaque:{
-        type:Sequelize.STRING(9)
-    },
     poulet:{
         type:Sequelize.INTEGER
-    },
-    entrepot:{
-        type:Sequelize.INTEGER
-    },
-    ville:{
-        type:Sequelize.STRING
     },
     type:{
         type:Sequelize.STRING(7)
@@ -29,5 +18,7 @@ const Transactions=db.define('villes',{
         type:Sequelize.DATE
     }
 })
+
+Transactions.hasOne(Trajets,{as:'id_trajet'})
 
 module.exports=Transactions
