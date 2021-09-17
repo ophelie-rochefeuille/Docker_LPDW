@@ -11,7 +11,8 @@ router.get('/', (req, res, next) => {
       res.sendStatus(200).json(camions);
     })
     .catch(err => console.log(err))
-})
+});
+
 
 router.get('/destroy', (req, res) => { 
   Camions.destroy()
@@ -20,7 +21,7 @@ router.get('/destroy', (req, res) => {
       res.sendStatus(200).json(camions);
     })
     .catch(err => console.log(err))
-})
+});
 
 router.get('/create', (req, res) => {
   Camions.create()
@@ -29,6 +30,15 @@ router.get('/create', (req, res) => {
       res.sendStatus(200).json(camions);
     })
     .catch(err => console.log(err))
-})
+});
 
+router.get('/findById/:id', (req, res) =>{
+  const id = req.params.id 
+  Entrepots.findById(id)
+  .then(entrepots => {
+      console.log(entrepots)
+    res.sendStatus(200).json(entrepots);
+  })
+  .catch(err => console.log(err))
+});
 module.exports = router 
