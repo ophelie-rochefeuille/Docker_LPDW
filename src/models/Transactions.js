@@ -6,7 +6,7 @@ const Utilisateurs=require('./Utilisateurs')
 const Camions=require('./Camions')
 const Entrepots=require('./Entrepots')
 
-const Transactions=db.define('villes',{
+const Transactions=db.define('Transactions',{
     id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
@@ -22,10 +22,5 @@ const Transactions=db.define('villes',{
         type:Sequelize.DATE
     }
 })
-
-Transactions.hasOne(Villes)
-Transactions.hasOne(Utilisateurs)
-Transactions.hasOne(Camions)
-Transactions.hasOne(Entrepots)
 
 module.exports=Transactions

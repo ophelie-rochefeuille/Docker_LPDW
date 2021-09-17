@@ -23,6 +23,4 @@ const Trajets=db.define('Trajets',{
     }
 })
 
-Trajets.hasOne(Transactions)
-
 module.exports=Trajets
