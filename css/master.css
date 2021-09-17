@@ -52,6 +52,6 @@ input{
     color: red;
     font-weight: 800;
 }
-#plaque-error{
+#plaque-error, #password-error, #login-error{
     display: none;
 }
