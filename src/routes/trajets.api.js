@@ -5,7 +5,7 @@ const db = require('../../config/databases');
 const {Trajets} = require('../models');
 
 router.get('/', (req, res, next) => {
-  City.findAll()
+  Trajets.findAll()
     .then(trajets => {
       console.log(trajets)
       res.sendStatus(200);
@@ -13,3 +13,5 @@ router.get('/', (req, res, next) => {
     .catch(err => console.log(err))
 
 })
+
+module.exports = router 
