@@ -8,9 +8,27 @@ router.get('/', (req, res, next) => {
   Entrepots.findAll()
     .then(entrepots => {
       console.log(entrepots)
-      res.sendStatus(200);
+      res.sendStatus(200).json(entrepots);
     })
     .catch(err => console.log(err))
-
 })
+
+router.get('/destroy', (req, res) => {
+  Entrepots.destroy()
+    .then(entrepots => {
+      console.log(entrepots)
+      res.sendStatus(200).json(entrepots);
+    })
+    .catch(err => console.log(err))
+})
+
+router.get('/create', (req, res) => {
+  Entrepots.create()
+    .then(entrepots => {
+      console.log(entrepots)
+      res.sendStatus(200).json(entrepots);
+    })
+    .catch(err => console.log(err))
+})
+
 module.exports = router 

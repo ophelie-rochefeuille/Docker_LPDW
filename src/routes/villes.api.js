@@ -8,10 +8,27 @@ router.get('/', (req, res, next) => {
   Villes.findAll()
     .then(villes => {
       console.log(villes)
+      res.sendStatus(200).json(villes);
+    })
+    .catch(err => console.log(err))
+})
+
+router.get('/destroy', (req, res) => {
+  Villes.destroy()
+    .then(villes => {
+      console.log(villes)
       res.sendStatus(200);
     })
     .catch(err => console.log(err))
+})
 
+router.get('/create', (req, res) => {
+  Villes.create()
+    .then(villes => {
+      console.log(villes)
+      res.sendStatus(200)
+    })
+    .catch(err => console.log(err))
 })
 
 module.exports = router 

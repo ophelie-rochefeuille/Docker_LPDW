@@ -8,10 +8,27 @@ router.get('/', (req, res, next) => {
   Utilisateurs.findAll()
     .then(utilisateurs => {
       console.log(utilisateurs)
-      res.sendStatus(200);
+      res.sendStatus(200).json(utilisateurs);
     })
     .catch(err => console.log(err))
+})
 
+router.get('/destroy', (req, res) => {
+  Utilisateurs.destroy()
+    .then(utilisateurs => {
+      console.log(utilisateurs)
+      res.sendStatus(200).json(utilisateurs);
+    })
+    .catch(err => console.log(err))
+})
+
+router.get('/create', (req, res) => {
+  Utilisateurs.create()
+    .then(utilisateurs => {
+      console.log(utilisateurs)
+      res.sendStatus(200).json(utilisateurs);
+    })
+    .catch(err => console.log(err))
 })
 
 module.exports = router 
