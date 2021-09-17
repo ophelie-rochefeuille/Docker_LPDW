@@ -1,7 +1,7 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
 
-const Villes=db.define('villes',{
+const Transactions=db.define('villes',{
     id:{
         type:Sequelize.STRING,
         primaryKey:true,
@@ -30,4 +30,4 @@ const Villes=db.define('villes',{
     }
 })
 
-module.exports=Villes
+module.exports=Transactions
