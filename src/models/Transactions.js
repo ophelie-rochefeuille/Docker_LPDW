@@ -3,7 +3,7 @@ const db=require('../../config/database')
 
 const Transactions=db.define('villes',{
     id:{
-        type:Sequelize.STRING,
+        type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
