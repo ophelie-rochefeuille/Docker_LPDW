@@ -1,6 +1,5 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
-const Villes=require('./Villes')
 
 const Entrepots=db.define('Entrepots',{
     id:{
@@ -12,7 +11,5 @@ const Entrepots=db.define('Entrepots',{
         type:Sequelize.STRING
     }
 })
-
-Entrepots.hasOne(Villes)
 
 module.exports=Entrepots
