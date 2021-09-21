@@ -1,6 +1,5 @@
 const Sequelize=require('sequelize')
 const db=require('../../config/database')
-const Transactions=require('./Transactions')
 
 const Villes=db.define('Villes',{
     nom_ville:{
@@ -8,7 +7,5 @@ const Villes=db.define('Villes',{
         primaryKey:true
     }
 })
-
-Villes.hasOne(Transactions)
 
 module.exports=Villes

@@ -3,7 +3,6 @@ const app = express()
 const port = 3000
 
 const db=require('../config/database')
-db.sync()
 
 db.authenticate()
     .then(()=>console.log('Database connected...'))
@@ -16,6 +15,13 @@ db.sync()
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
+
+Utilisateurs.hasOne(Transactions,{foreignKey:'user'})
+Camions.hasOne(Transactions,{foreignKey:'camion'})
+Entrepots.hasOne(Transactions,{foreignKey:'entrepot'})
+Villes.hasOne(Transactions,{foreignKey:'ville'})
+Transactions.hasOne(Trajets,{foreignKey:'id_trajet'})
+Villes.hasOne(Entrepots,{foreignKey:'ville'})
 
 app.use('/api/villes', VillesAPI)
 app.use('/api/camions', CamionsAPI)
