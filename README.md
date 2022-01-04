@@ -1,6 +1,8 @@
 # Docker_LPDW
 
-CLEMENT 
-Ophélie R
-PIERRE
-Tom
+### Membres du groupes
+
+-   Hervelin Pierre
+-   Rochefeuille Ophélie
+-   Bagiau Tom
+-   Martini Clément
