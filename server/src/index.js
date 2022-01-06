@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
+const cors = require('cors');
 const db = require('../config/database');
 
 db.authenticate()
@@ -23,6 +24,7 @@ Villes.hasOne(Transactions, { foreignKey: 'ville' });
 Transactions.hasOne(Trajets, { foreignKey: 'id_trajet' });
 Villes.hasOne(Entrepots, { foreignKey: 'ville' });
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
