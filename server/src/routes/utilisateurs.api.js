@@ -49,22 +49,26 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/sign', async (req, res) => {
-    const user = req.body.user;
+    if (req.body) {
+        const user = req.body.user;
 
-    const { password, key } = hashPassword(user.password);
-    user.password = password;
-    user.key = key;
+        const { password, key } = hashPassword(user.password);
+        user.password = password;
+        user.key = key;
 
-    if (!user.login || !user.firstName || !user.lastName || !user.password || !user.key) {
-        res.sendStatus(403);
-    } else {
-        try {
-            await Utilisateurs.create(user);
-            res.sendStatus(200);
-        } catch (e) {
-            res.sendStatus(500);
-            console.error(e);
+        if (!user.login || !user.firstName || !user.lastName || !user.password || !user.key) {
+            res.sendStatus(403);
+        } else {
+            try {
+                await Utilisateurs.create(user);
+                res.sendStatus(200);
+            } catch (e) {
+                res.sendStatus(500);
+                console.error(e);
+            }
         }
+    } else {
+        res.sendStatus(404);
     }
 });
 
