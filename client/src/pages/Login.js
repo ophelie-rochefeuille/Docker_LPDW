@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
+const loginUrl = 'http://localhost:3001/api/users/login';
 
 const Login = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
-    const confirm = () => {};
+    const confirm = async () => {
+        const requestBody = { login: login, password: password };
+        try {
+            const request = await axios.post(loginUrl, requestBody);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     return (
         <div className="Home">
