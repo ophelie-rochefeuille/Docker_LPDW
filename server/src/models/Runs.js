@@ -3,9 +3,8 @@ const db = require('../../config/database');
 
 const Runs = db.define('Runs', {
     id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
     },
     temperature: {
         type: Sequelize.INTEGER,
