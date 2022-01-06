@@ -7,7 +7,7 @@ const { Users } = require('../models/index');
 router.get('/', async (req, res) => {
     try {
         const users = await Users.findAll();
-        res.sendStatus(200).json(users);
+        res.send(users);
     } catch (e) {
         res.sendStatus(500);
     }
