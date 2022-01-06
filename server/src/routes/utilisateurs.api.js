@@ -33,18 +33,22 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const login = req.body.login;
-    const password = req.body.password;
-    try {
-        const user = await Utilisateurs.findOne({ where: { login } });
-        if (hashPassword(password, user.key) === user.password) {
-            res.sendStatus(200).send(user);
-        } else {
-            res.sendStatus(403);
+    if (req.body) {
+        const login = req.body.login;
+        const password = req.body.password;
+        try {
+            const user = await Utilisateurs.findOne({ where: { login } });
+            if (hashPassword(password, user.key).password === user.password) {
+                res.sendStatus(200).send(user);
+            } else {
+                res.sendStatus(403);
+            }
+        } catch (e) {
+            res.sendStatus(500);
+            console.error(e);
         }
-    } catch (e) {
-        res.sendStatus(500);
-        console.error(e);
+    } else {
+        res.sendStatus(404);
     }
 });
 
