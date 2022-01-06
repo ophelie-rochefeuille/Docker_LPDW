@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
+const signinUrl = 'http://localhost:3001/api/users/sign';
 
 const SignIn = () => {
     const [firstName, setFirstName] = useState('');
@@ -6,6 +9,21 @@ const SignIn = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const confirm = async () => {
+        const requestBody = {
+            user: {
+                login: login,
+                password: password,
+                firstName: firstName,
+                lastName: lastName,
+            },
+        };
+        try {
+            const request = await axios.post(signinUrl, requestBody);
+        } catch (e) {
+            console.error(e);
+        }
+    };
     return (
         <div className="Sign">
             <div>
@@ -50,7 +68,7 @@ const SignIn = () => {
                 }}
                 value={confirmPassword}
             />
-            <button>Confirm</button>
+            <button onClick={confirm}>s`enregistrer</button>
         </div>
     );
 };
