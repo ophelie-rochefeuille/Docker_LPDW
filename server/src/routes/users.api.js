@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
 router.post('/sign', async (req, res) => {
     if (req.body) {
         const user = req.body.user;
-        const userTaken = await Utilisateurs.findOne({ where: { login: user.login } });
+        const userTaken = await Users.findOne({ where: { login: user.login } });
 
         const { password, key } = hashPassword(user.password);
         user.password = password;
