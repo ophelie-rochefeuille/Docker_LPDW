@@ -1,35 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const db = require('../../config/database');
 const { hashPassword } = require('../core/helpers');
-const { Utilisateurs } = require('../models/index');
+const { Users } = require('../models/index');
 
-router.get('/', (req, res, next) => {
-    Utilisateurs.findAll()
-        .then((utilisateurs) => {
-            res.send(utilisateurs);
-            res.sendStatus(200).json(utilisateurs);
-        })
-        .catch((err) => console.log(err));
-});
-
-router.get('/destroy', (req, res) => {
-    Utilisateurs.destroy()
-        .then((utilisateurs) => {
-            console.log(utilisateurs);
-            res.sendStatus(200).json(utilisateurs);
-        })
-        .catch((err) => console.log(err));
-});
-
-router.get('/create', (req, res) => {
-    Utilisateurs.create()
-        .then((utilisateurs) => {
-            console.log(utilisateurs);
-            res.sendStatus(200).json(utilisateurs);
-        })
-        .catch((err) => console.log(err));
+router.get('/', async (req, res) => {
+    try {
+        const users = await Users.findAll();
+        res.sendStatus(200).json(users);
+    } catch (e) {
+        res.sendStatus(500);
+    }
 });
 
 router.post('/login', async (req, res) => {
@@ -37,7 +18,7 @@ router.post('/login', async (req, res) => {
         const login = req.body.login;
         const password = req.body.password;
         try {
-            const user = await Utilisateurs.findOne({ where: { login } });
+            const user = await Users.findOne({ where: { login } });
             if (hashPassword(password, user.key).password === user.password) {
                 res.sendStatus(200);
             } else {
@@ -67,7 +48,7 @@ router.post('/sign', async (req, res) => {
             res.sendStatus(409);
         } else {
             try {
-                await Utilisateurs.create(user);
+                await Users.create(user);
                 res.sendStatus(200);
             } catch (e) {
                 res.sendStatus(500);

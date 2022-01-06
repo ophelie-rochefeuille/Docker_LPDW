@@ -7,7 +7,7 @@ const Transactions = db.define('Transactions', {
         primaryKey: true,
         autoIncrement: true,
     },
-    poulet: {
+    chicken: {
         type: Sequelize.INTEGER,
     },
     type: {

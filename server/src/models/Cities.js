@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 const db = require('../../config/database');
 
-const Villes = db.define('Villes', {
-    nom_ville: {
+const Cities = db.define('Cities', {
+    name: {
         type: Sequelize.STRING,
         primaryKey: true,
     },
 });
 
-module.exports = Villes;
+module.exports = Cities;

@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../../config/database');
 
-const Entrepots = db.define('Entrepots', {
+const Warehouses = db.define('Warehouses', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    nom_entrepot: {
+    name: {
         type: Sequelize.STRING,
     },
 });
 
-module.exports = Entrepots;
+module.exports = Warehouses;
