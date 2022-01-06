@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
         try {
             const user = await Utilisateurs.findOne({ where: { login } });
             if (hashPassword(password, user.key).password === user.password) {
-                res.sendStatus(200).send(user);
+                res.sendStatus(200);
             } else {
                 res.sendStatus(403);
             }
