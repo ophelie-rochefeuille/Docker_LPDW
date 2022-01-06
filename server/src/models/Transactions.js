@@ -3,9 +3,8 @@ const db = require('../../config/database');
 
 const Transactions = db.define('Transactions', {
     id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
     },
     chicken: {
         type: Sequelize.INTEGER,
