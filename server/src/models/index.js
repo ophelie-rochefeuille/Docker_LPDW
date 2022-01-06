@@ -1,8 +1,8 @@
 module.exports = {
-    Villes: require('./Villes'),
-    Entrepots: require('./Entrepots'),
-    Trajets: require('./Trajets'),
+    Cities: require('./Cities'),
+    Warehouses: require('./Warehouses'),
+    Runs: require('./Runs'),
     Transactions: require('./Transactions'),
-    Camions: require('./Camions'),
-    Utilisateurs: require('./Utilisateurs'),
+    Trucks: require('./Trucks'),
+    Users: require('./Users'),
 };

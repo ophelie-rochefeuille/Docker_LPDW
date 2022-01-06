@@ -9,31 +9,31 @@ db.authenticate()
     .then(() => console.log('Database connected...'))
     .catch((err) => console.log('Error: ' + err));
 
-const { Villes, Camions, Trajets, Transactions, Entrepots, Utilisateurs } = require('./models/index');
-const { VillesAPI, CamionsAPI, TrajetsAPI, TransactionsAPI, EntrepotsAPI, UtilisateursAPI } = require('./routes/index');
+const { Cities, Trucks, Runs, Transactions, Warehouses, Users } = require('./models/index');
+const { CitiesAPI, TrucksAPI, RunsAPI, TransactionsAPI, WarehousesAPI, UsersAPI } = require('./routes/index');
 db.sync();
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-Utilisateurs.hasOne(Transactions, { foreignKey: 'user' });
-Camions.hasOne(Transactions, { foreignKey: 'camion' });
-Entrepots.hasOne(Transactions, { foreignKey: 'entrepot' });
-Villes.hasOne(Transactions, { foreignKey: 'ville' });
-Transactions.hasOne(Trajets, { foreignKey: 'id_trajet' });
-Villes.hasOne(Entrepots, { foreignKey: 'ville' });
+Users.hasOne(Transactions, { foreignKey: 'user' });
+Trucks.hasOne(Transactions, { foreignKey: 'plate' });
+Warehouses.hasOne(Transactions, { foreignKey: 'warehouse' });
+Cities.hasOne(Transactions, { foreignKey: 'city' });
+Runs.hasOne(Transactions, { foreignKey: 'run_id' });
+Cities.hasOne(Warehouses, { foreignKey: 'city' });
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use('/api/villes', VillesAPI);
-app.use('/api/camions', CamionsAPI);
-app.use('/api/trajets', TrajetsAPI);
+app.use('/api/cities', CitiesAPI);
+app.use('/api/trucks', TrucksAPI);
+app.use('/api/runs', RunsAPI);
 app.use('/api/transactions', TransactionsAPI);
-app.use('/api/entrepots', EntrepotsAPI);
-app.use('/api/utilisateurs', UtilisateursAPI);
+app.use('/api/warehouses', WarehousesAPI);
+app.use('/api/users', UsersAPI);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

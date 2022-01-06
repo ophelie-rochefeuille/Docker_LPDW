@@ -1,8 +1,8 @@
 module.exports = {
-    CamionsAPI: require('./camions.api'),
-    UtilisateursAPI: require('./utilisateurs.api'),
-    TrajetsAPI: require('./trajets.api'),
-    VillesAPI: require('./villes.api'),
+    TrucksAPI: require('./trucks.api'),
+    UsersAPI: require('./users.api'),
+    RunsAPI: require('./runs.api'),
+    CitiesAPI: require('./cities.api'),
     TransactionsAPI: require('./transactions.api'),
-    EntrepotsAPI: require('./entrepots.api'),
+    WarehousesAPI: require('./warehouses.api'),
 };
