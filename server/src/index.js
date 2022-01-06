@@ -23,6 +23,9 @@ Villes.hasOne(Transactions, { foreignKey: 'ville' });
 Transactions.hasOne(Trajets, { foreignKey: 'id_trajet' });
 Villes.hasOne(Entrepots, { foreignKey: 'ville' });
 
+app.use(express.json());
+app.use(express.urlencoded());
+
 app.use('/api/villes', VillesAPI);
 app.use('/api/camions', CamionsAPI);
 app.use('/api/trajets', TrajetsAPI);

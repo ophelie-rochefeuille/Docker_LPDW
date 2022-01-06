@@ -5,7 +5,7 @@ const hashPassword = (password, key = null) => {
     key = key ? key : crypto.randomBytes(48).toString('hex');
 
     shasum.update(password + key + password + password + key);
-    return { hashPassword: shasum.digest('hex'), key };
+    return { password: shasum.digest('hex'), key };
 };
 
 module.exports = {
