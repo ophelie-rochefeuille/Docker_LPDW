@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../../config/database');
 
-const Utilisateurs = db.define('Utilisateurs', {
+const Users = db.define('Users', {
     login: {
         type: Sequelize.STRING,
         primaryKey: true,
@@ -20,4 +20,4 @@ const Utilisateurs = db.define('Utilisateurs', {
     },
 });
 
-module.exports = Utilisateurs;
+module.exports = Users;
