@@ -15,6 +15,10 @@ const Transactions = db.define('Transactions', {
     date: {
         type: Sequelize.DATE,
     },
+    run_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+    },
 });
 
 module.exports = Transactions;

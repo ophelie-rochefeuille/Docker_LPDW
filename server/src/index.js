@@ -21,7 +21,6 @@ Users.hasOne(Transactions, { foreignKey: 'user' });
 Trucks.hasOne(Transactions, { foreignKey: 'plate' });
 Warehouses.hasOne(Transactions, { foreignKey: 'warehouse' });
 Cities.hasOne(Transactions, { foreignKey: 'city' });
-Runs.hasOne(Transactions, { foreignKey: 'run_id' });
 Cities.hasOne(Warehouses, { foreignKey: 'city' });
 
 app.use(cors());
