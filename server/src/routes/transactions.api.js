@@ -19,18 +19,18 @@ router.post('/submit', async (req, res) => {
     if (req.body) {
         const transaction = req.body;
         transaction.id = uuid();
-        console.log(transaction);
         try {
             if (transaction.type === 'start') {
                 transaction.run_id = uuid();
                 await Runs.create({
-                    id: transaction.run_id,
+                    run_id: transaction.run_id,
                     temperature: 0,
                     longitude: 0,
                     latitude: 0,
                     date: transaction.date,
                 });
             }
+            console.log(transaction);
             await Transactions.create(transaction);
             res.sendStatus(200);
         } catch (e) {
