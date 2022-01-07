@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "docker-up": "sudo docker-compose up",
+    "docker-up:app": "sudo docker-compose up -d",
+    "docker-build": "sudo docker-compose build"
   },
   "author": "",
   "license": "ISC",
