@@ -7,7 +7,8 @@
     "test": "jest",
     "docker-up": "sudo docker-compose up",
     "docker-up:app": "sudo docker-compose up -d",
-    "docker-build": "sudo docker-compose build"
+    "docker-build": "sudo docker-compose build",
+    "docker-stop:all": "sudo docker stop $(sudo docker ps -a -q)"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.7",
-    "prettier": "^2.5.1"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "supertest": "^6.1.6"
   }
 }
