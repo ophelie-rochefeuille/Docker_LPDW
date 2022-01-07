@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const signinUrl = 'http://localhost:3001/api/users/sign';
 
-const SignIn = () => {
+const SignInPage = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [login, setLogin] = useState('');
@@ -73,4 +73,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignInPage;
