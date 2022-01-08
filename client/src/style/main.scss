@@ -4,9 +4,10 @@ $backgroundColor: rgb(19, 19, 19);
 $color1: rgb(255, 255, 255);
 $color2: #888;
 $detailColor: white;
+$errorColor: red;
 // shadow
-$detailShadow: 0 0 20px rgba(gray, 0.2);
-$detailShadowHover: 0 0 20px rgba(rgb(143, 143, 143), 0.5);
+$detailShadow: 0 0 20px rgba(rgb(145, 145, 145), 0.2);
+$detailShadowHover: 0 0 20px rgba(rgb(145, 145, 145), 0.5);
 
 body {
     min-height: 100vh;
@@ -51,6 +52,11 @@ button {
     &:hover {
         box-shadow: $detailShadowHover;
     }
+}
+
+.error {
+    font-weight: 600;
+    color: $errorColor;
 }
 
 %mid {
