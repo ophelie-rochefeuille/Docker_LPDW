@@ -30,7 +30,8 @@ const LoginPage = () => {
     }, [success]);
 
     return (
-        <form className="Home">
+        <form className="login">
+            <h1>CHICKEN DRIVER</h1>
             <input
                 type="text"
                 placeholder="Login"
@@ -47,7 +48,7 @@ const LoginPage = () => {
                 }}
                 value={password}
             />
-            <button onClick={confirm}>se connecter</button>
+            <button onClick={confirm}>Connexion</button>
         </form>
     );
 };

@@ -1,5 +1,16 @@
+// VARIABLES
+// colors
+$backgroundColor: rgb(19, 19, 19);
+$color1: rgb(255, 255, 255);
+$color2: #888;
+$detailColor: white;
+// shadow
+$detailShadow: 0 0 20px rgba(gray, 0.2);
+$detailShadowHover: 0 0 20px rgba(rgb(143, 143, 143), 0.5);
+
 body {
     min-height: 100vh;
+    background: $backgroundColor;
 }
 
 *,
@@ -8,4 +19,51 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+input {
+    border: none;
+    outline: none;
+
+    padding: 10px 10px 10px 10px;
+    box-shadow: $detailShadow;
+    transition: box-shadow ease 0.5s;
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: $detailShadowHover;
+    }
+}
+
+button {
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+
+    background: $detailColor;
+    box-shadow: $detailShadow;
+
+    transition: box-shadow ease 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $detailShadowHover;
+    }
+}
+
+%mid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+%row {
+    display: flex;
+    flex-direction: row;
+}
+%col {
+    display: flex;
+    flex-direction: column;
 }
