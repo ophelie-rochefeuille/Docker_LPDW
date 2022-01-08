@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { gsap } from 'gsap';
 
 const loginUrl = 'http://localhost:3001/api/users/login';
 
@@ -28,6 +29,16 @@ const LoginPage = () => {
             navigate('/');
         }
     }, [success]);
+
+    // animation
+
+    useEffect(() => {
+        gsap.timeline().from('.login', {
+            duration: 1,
+            x: -1000,
+            ease: 'bounce',
+        });
+    }, []);
 
     return (
         <form className="login">
