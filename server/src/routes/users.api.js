@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
             console.error(e);
         }
     } else {
-        res.sendStatus(404);
+        res.sendStatus(400);
     }
 });
 
