@@ -19,13 +19,13 @@ router.post('/create', async (req, res) => {
         const truck = req.body;
         try {
             await Trucks.create(truck);
-            res.sendStatus(200);
+            res.sendStatus(201);
         } catch (e) {
             res.sendStatus(500);
             console.error(e);
         }
     } else {
-        res.sendStatus(404);
+        res.sendStatus(400);
     }
 });
 
